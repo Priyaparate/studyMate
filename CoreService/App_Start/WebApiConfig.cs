@@ -1,4 +1,5 @@
-﻿using StudyMateLibrary.Extentions;
+﻿using CoreService.Filters;
+using StudyMateLibrary.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,10 @@ namespace CoreService
 {
     public static class WebApiConfig
     {
-        public static Dictionary<Type, List<Type>> entityDependancies = new Dictionary<Type, List<Type>>();
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            GlobalConfiguration.Configuration.Filters.Add(new ExceptionFilter());
             // Web API routes
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
@@ -21,7 +21,7 @@ namespace CoreService
               routeTemplate: "api/{controller}/{Action}/{id}",
               defaults: new { id = RouteParameter.Optional }
           );
-
+           
         }
 
        

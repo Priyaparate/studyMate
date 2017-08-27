@@ -1,15 +1,13 @@
 ﻿using StudyMateLibrary.Domains;
 using StudyMateLibrary.Enities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 namespace CoreService.Controllers
 {
-    public class BaseController<T> : ApiController where T :Entity,new()
+    public class BaseController<T> : ApiController where T : Entity, new()
     {
         private CommonDomain<T> _commonDomain;
 
@@ -23,12 +21,12 @@ namespace CoreService.Controllers
         {
             return _commonDomain.List();
         }
+
         [HttpGet]
         public virtual T Get(string id)
         {
             return _commonDomain.Get(x => x.Id == id);
         }
-
 
         [HttpPost]
         public virtual HttpResponseMessage Add(T entity)
@@ -61,10 +59,9 @@ namespace CoreService.Controllers
         [HttpDelete]
         public virtual HttpResponseMessage Detete(T entity)
         {
-           
-                var result = _commonDomain.Delete(entity);
-            if(result)
-            { 
+            var result = _commonDomain.Delete(entity);
+            if (result)
+            {
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
             else

@@ -75,10 +75,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agent\MongoDBContext.cs" />
+    <Compile Include="Attributes\CascadeDeleteAttribute.cs" />
+    <Compile Include="Attributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="Attributes\ProjectOnlyAttribute.cs" />
     <Compile Include="Domains\CategoryDomain.cs" />
     <Compile Include="Domains\CommonDomain.cs" />
     <Compile Include="Attributes\ForignKeyAttribute.cs" />
-    <Compile Include="Extentions\EnityExtention.cs" />
+    <Compile Include="Extentions\EntityExtention.cs" />
+    <Compile Include="FrameWork\CustomExceptions\CascadeDeleteExcetion.cs" />
+    <Compile Include="FrameWork\Entitydeclarations.cs" />
     <Compile Include="FrameWork\EntityManager.cs" />
     <Compile Include="FrameWork\MemberDeclaration.cs" />
     <Compile Include="Interfaces\IDependancy.cs" />

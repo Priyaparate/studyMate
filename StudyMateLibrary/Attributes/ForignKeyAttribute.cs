@@ -2,6 +2,7 @@
 
 namespace StudyMateLibrary.Attributes
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class ForeignKeyAttribute : Attribute
     {
         public Type EnityType { get; set; }
@@ -10,12 +11,5 @@ namespace StudyMateLibrary.Attributes
             EnityType = t;
         }
     }
-    public class PrimaryKeyAttribute : Attribute
-    {
-        public Type EnityType { get; set; }
-        public PrimaryKeyAttribute()
-        {
-            //EnityType = t;
-        }
-    }
+   
 }

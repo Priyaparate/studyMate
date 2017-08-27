@@ -39,6 +39,7 @@ namespace StudyMateLibrary.Repository
 
         public static bool Delete<T>(this IRepository<T> repository, Expression<Func<T, bool>> filter) where T : class, new()
         {
+            
             var updateResult = repository._Db.Collection.DeleteMany<T>(filter);
 
             if (updateResult.DeletedCount > 0)
