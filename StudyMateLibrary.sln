@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyMateLibrary", "StudyMateLibrary\StudyMateLibrary.csproj", "{23433E0B-D08C-4A23-978B-F2F8A8FCA69A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyMateLibrary.Test", "StudyMateLibrary.Test\StudyMateLibrary.Test.csproj", "{97D20593-4181-47D6-869D-880953019F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreService", "CoreService\CoreService.csproj", "{733D59BC-5562-45E3-A312-1151DA5C44E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23433E0B-D08C-4A23-978B-F2F8A8FCA69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23433E0B-D08C-4A23-978B-F2F8A8FCA69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23433E0B-D08C-4A23-978B-F2F8A8FCA69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23433E0B-D08C-4A23-978B-F2F8A8FCA69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D20593-4181-47D6-869D-880953019F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D20593-4181-47D6-869D-880953019F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D20593-4181-47D6-869D-880953019F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D20593-4181-47D6-869D-880953019F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{733D59BC-5562-45E3-A312-1151DA5C44E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733D59BC-5562-45E3-A312-1151DA5C44E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733D59BC-5562-45E3-A312-1151DA5C44E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733D59BC-5562-45E3-A312-1151DA5C44E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
