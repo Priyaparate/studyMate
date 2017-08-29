@@ -85,10 +85,8 @@
     <Compile Include="FrameWork\Entitydeclarations.cs" />
     <Compile Include="FrameWork\EntityManager.cs" />
     <Compile Include="FrameWork\MemberDeclaration.cs" />
-    <Compile Include="Interfaces\IDependancy.cs" />
     <Compile Include="Enities\Entity.cs" />
     <Compile Include="Domains\QuestionDomain.cs" />
-    <Compile Include="Domains\TestDomain.cs" />
     <Compile Include="Domains\UserDomain.cs" />
     <Compile Include="Enities\Address.cs" />
     <Compile Include="Enities\CIty.cs" />

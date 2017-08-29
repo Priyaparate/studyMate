@@ -17,6 +17,11 @@ namespace StudyMateLibrary.Repository
 
         public Repository()
         {
+            Setup();
+        }
+
+        private void Setup()
+        {
             Database = ConfigurationManager.AppSettings["Database"];
             ConnectionString = ConfigurationManager.AppSettings["ConnectionString"];
 

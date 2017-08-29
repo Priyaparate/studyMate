@@ -4,53 +4,22 @@ using System;
 
 namespace StudyMateLibrary.Domains
 {
-    public class QuestionDomain : CommonDomain<Question>, IDisposable
+    public class QuestionDomain : CommonDomain<Question>
     {
-        private IRepository<Question> _questionRepository;
-
+        //add options related logic
         public QuestionDomain()
         {
-            _questionRepository = new Repository<Question>();
+            _repository = new Repository<Question>();
         }
 
         public QuestionDomain(IRepository<Question> userRepository)
         {
-            _questionRepository = userRepository;
+            _repository = userRepository;
         }
 
-        public bool AddQuestion(Question question)
-        {
-            _questionRepository.Add(question);
+        
+      
 
-            return true;
-        }
 
-        public void Dispose()
-        {
-            _questionRepository = null;
-        }
-
-        //public Question GetQuestion(Expression<Func<Question, bool>> filter)
-        //{
-        //    return _questionRepository.Get(filter);
-        //}
-
-        //public IEnumerable<Question> List(Func<Question, bool> filter)
-        //{
-        //    return _questionRepository.List(filter);
-
-        //}
-
-        //public bool UpdateQuestion(Expression<Func<Question, bool>> filter, Question question)
-        //{
-        //    return _questionRepository.UpdateOne(filter, question);
-
-        //}
-
-        //public bool Delete(Expression<Func<Question, bool>> filter)
-        //{
-        //    return _questionRepository.Delete(filter);
-
-        //}
     }
 }
