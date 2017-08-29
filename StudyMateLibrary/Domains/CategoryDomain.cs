@@ -1,11 +1,4 @@
-﻿using StudyMateLibrary.Enities;
-using StudyMateLibrary.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-
-namespace StudyMateLibrary.Domains
+﻿namespace StudyMateLibrary.Domains
 {
     //public class CategoryDomain
     //{

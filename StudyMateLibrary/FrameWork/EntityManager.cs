@@ -52,9 +52,9 @@ namespace StudyMateLibrary.FrameWork
             foreach (var entity in entities)
             {
                 var attributes = entity.GetCustomAttributes();
-                
+
                 var entityDeclaration = new Entitydeclarations();
-               
+
                 foreach (var attribue in attributes)
                 {
                     if (entity.Name == nameof(CascadeDeleteAttribute))
@@ -115,9 +115,9 @@ namespace StudyMateLibrary.FrameWork
         {
             return MemberDeclarationList[type].Where(x => x.IsPrimaryKey == true).FirstOrDefault().Dependancies;
         }
+
         public static Entitydeclarations GetEntityddeclation(Type type)
         {
-
             return EntityDeclarationList[type];
         }
     }

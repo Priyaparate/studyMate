@@ -1,7 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using StudyMateLibrary.Attributes;
-using StudyMateLibrary.Domains;
-using StudyMateLibrary.Enities;
+﻿using StudyMateLibrary.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace StudyMateLibrary.Enities
@@ -23,7 +20,6 @@ namespace StudyMateLibrary.Enities
         public string SubjectId { get; set; }
 
         [Required]
-
         [ForeignKey(typeof(TestType))]
         public string TestType { get; set; }
     }

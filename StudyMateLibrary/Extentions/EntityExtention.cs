@@ -14,14 +14,14 @@ namespace StudyMateLibrary.Extentions
     {
         public static void ValidateDependancies<T>(this Entity entity)
         {
-            var dependancies = new List<string> ();
+            var dependancies = new List<string>();
             var Informations = new List<string>();
             var dependancy = EntityManager.GetDependancy(typeof(T));
             foreach (var item in dependancy)
             {
                 var repository = GetRepositoryInstance(item.Key);
                 var member = item.Value;
-                
+
                 var filter = GetExpression(item.Key, member.Name, entity.Id).Compile();
                 var filterArry = new object[] { filter };
 
@@ -29,7 +29,6 @@ namespace StudyMateLibrary.Extentions
                 int result = 0;
                 if (EntityDeclaration.CascadeDelete)
                 {
-
                     var resultobj = repository.GetType().GetMethod("Delete").Invoke(repository, filterArry);
                     int.TryParse(Convert.ToString(resultobj), out result);
                     Informations.Add($"{item.Key.Name}  {result} is deleted");
@@ -37,31 +36,25 @@ namespace StudyMateLibrary.Extentions
                 else
                 {
                     var resultobj = repository.GetType().GetMethod("Count").Invoke(repository, filterArry);
-                  
+
                     int.TryParse(Convert.ToString(resultobj), out result);
                     if (result > 0)
                     {
                         dependancies.Add(item.Key.Name + $" {result} records associated. Cannot delete");
                     }
-
-
                 }
-
-              
             }
             if (dependancy.Any())
             {
                 throw new ProhibitCascadeDeleteException() { ValidationResults = dependancies };
-
             }
-              
         }
 
         private static LambdaExpression GetExpression(Type t, string propertyName, string propertyValue)
         {
             var parameterExp = Expression.Parameter(t, "type");
             var propertyExp = Expression.Property(parameterExp, propertyName);
-           // MethodInfo method = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+            // MethodInfo method = typeof(string).GetMethod("Contains", new[] { typeof(string) });
             MethodInfo method = typeof(string).GetMethod("Equals", new[] { typeof(string) });
             var someValue = Expression.Constant(propertyValue, typeof(string));
             var containsMethodExp = Expression.Call(propertyExp, method, someValue);

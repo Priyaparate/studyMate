@@ -9,6 +9,5 @@ namespace StudyMateLibrary.Enities
         [PrimaryKey]
         [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
         public string Id { get; set; }
-
     }
 }

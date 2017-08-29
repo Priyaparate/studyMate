@@ -1,11 +1,8 @@
 ﻿using StudyMateLibrary.Enities;
 using StudyMateLibrary.Extentions;
-using StudyMateLibrary.FrameWork.CustomExceptions;
-using StudyMateLibrary.Interfaces;
 using StudyMateLibrary.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace StudyMateLibrary.Domains
@@ -66,8 +63,8 @@ namespace StudyMateLibrary.Domains
         /// <returns></returns>
         public virtual bool Delete(T entity)
         {
-           entity.ValidateDependancies<T>();
-            
+            entity.ValidateDependancies<T>();
+
             return _commonRepository.Delete(t => t.Id == entity.Id);
         }
     }

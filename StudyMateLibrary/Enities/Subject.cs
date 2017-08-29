@@ -1,9 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using StudyMateLibrary.Domains;
-using StudyMateLibrary.Interfaces;
-using System.ComponentModel.DataAnnotations;
-using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace StudyMateLibrary.Enities
 {
@@ -13,6 +8,5 @@ namespace StudyMateLibrary.Enities
 
         [Required]
         public string SubjectText { get; set; }
-        
     }
 }

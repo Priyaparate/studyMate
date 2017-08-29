@@ -1,7 +1,6 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace StudyMateLibrary.Repository
@@ -11,10 +10,10 @@ namespace StudyMateLibrary.Repository
         public static bool UpdateOne<T>(this IRepository<T> repository, Expression<Func<T, bool>> filter, T entity) where T : class, new()
         {
             var originalEntity = repository.Get(filter);
-            UpdateDefinition<T> updateField = GetUpdateFieldBuider(originalEntity,entity);
-           
-            var updateResult = repository._Db.Collection.UpdateMany<T>(filter,updateField);
-            
+            UpdateDefinition<T> updateField = GetUpdateFieldBuider(originalEntity, entity);
+
+            var updateResult = repository._Db.Collection.UpdateMany<T>(filter, updateField);
+
             return updateResult.IsModifiedCountAvailable;
         }
 
@@ -26,10 +25,9 @@ namespace StudyMateLibrary.Repository
 
             foreach (var item in members)
             {
-              
                 var originalItemvalue = item.GetValue(originalEntity);
-                var entitylItemvalue = item.GetValue(entity);    
-                if (originalItemvalue!=entitylItemvalue && entitylItemvalue!=null )
+                var entitylItemvalue = item.GetValue(entity);
+                if (originalItemvalue != entitylItemvalue && entitylItemvalue != null)
                 {
                     list.Add(set.Set(item.Name, entitylItemvalue));
                 }
@@ -39,13 +37,11 @@ namespace StudyMateLibrary.Repository
 
         public static bool Delete<T>(this IRepository<T> repository, Expression<Func<T, bool>> filter) where T : class, new()
         {
-            
             var updateResult = repository._Db.Collection.DeleteMany<T>(filter);
 
             if (updateResult.DeletedCount > 0)
             {
                 return true;
-
             }
             else
             {

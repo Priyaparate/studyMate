@@ -18,6 +18,7 @@ namespace StudyMateLibrary.Repository
         T Get(Expression<Func<T, bool>> filter);
 
         IEnumerable<T> List(Func<T, bool> filter = null);
+
         void Update(string id, T t);
     }
 }

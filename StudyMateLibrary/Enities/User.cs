@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StudyMateLibrary.Enities
 {
-    public class User :Entity
+    public class User : Entity
     {
-       
         public Guid GuidId { get; set; }
 
         [BsonRequired]
@@ -22,7 +21,7 @@ namespace StudyMateLibrary.Enities
         public Address Address { get; set; }
 
         [Required]
-        [StringLength(maximumLength:15,MinimumLength=8)]
+        [StringLength(maximumLength: 15, MinimumLength = 8)]
         public string Password { get; set; }
 
         [Required]

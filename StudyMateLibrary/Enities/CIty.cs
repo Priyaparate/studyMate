@@ -1,9 +1,6 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using StudyMateLibrary.Domains;
-
-namespace StudyMateLibrary.Enities
+﻿namespace StudyMateLibrary.Enities
 {
-    public class City:Entity
+    public class City : Entity
     {
         public int StateId { get; set; }
 
