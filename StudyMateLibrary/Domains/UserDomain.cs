@@ -2,13 +2,12 @@
 using StudyMateLibrary.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace StudyMateLibrary.Domains
 {
-    public class UserDomain :CommonDomain<User>,IDisposable
+    public class UserDomain : CommonDomain<User>, IDisposable
     {
-        private  IRepository<User> _userRepository;
+        private IRepository<User> _userRepository;
 
         public UserDomain()
         {
@@ -20,19 +19,6 @@ namespace StudyMateLibrary.Domains
             _userRepository = userRepository;
         }
 
-        //public bool AddUser(User user)
-        //{
-        //    ValdateUser(user);
-        //    validateUserName(user);
-
-        //    user.GuidId = new Guid();
-        //    user.UserId = _userRepository.Count() + 1;
-
-        //    _userRepository.Add(user);
-
-        //    return true;
-        //}
-
         public bool ChangePassord(string userId, string Password)
         {
             ValdateUserId(userId);
@@ -40,41 +26,15 @@ namespace StudyMateLibrary.Domains
             var user = _userRepository.Get(u => u.Id == userId);
             user.Password = Password;
 
-            _userRepository.UpdateOne(u=>u.Id==user.Id, user);
+            _userRepository.UpdateOne(u => u.Id == user.Id, user);
 
             return true;
         }
-
-       
-        //public User GetUser(Expression<Func<User,bool>> filter)
-        //{
-            
-        //    return _userRepository.Get(filter);
-        //}
 
         public IEnumerable<User> List()
         {
             return _userRepository.List();
         }
-
-        //public bool UpdateUser(int userId, User user)
-        //{
-        //    ValdateUser(user);
-        //    ValdateUserId(userId);
-
-        //    _userRepository.UpdateOne(u => u.UserId == user.UserId, user);
-        //    return true;
-        //}
-        //public bool Delete(Expression<Func<User, bool>> filter)
-        //{
-        //    return _userRepository.Delete(filter);
-
-        //}
-
-        //private void ValdateUser(User user)
-        //{
-        //    if (user == null) throw new ArgumentException("User object not valid");
-        //}
 
         private void ValdateUserId(string userId)
         {

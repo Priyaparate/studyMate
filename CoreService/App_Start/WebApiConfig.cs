@@ -1,9 +1,4 @@
 ﻿using CoreService.Filters;
-using StudyMateLibrary.Extentions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Web.Http;
 
 namespace CoreService
@@ -21,9 +16,6 @@ namespace CoreService
               routeTemplate: "api/{controller}/{Action}/{id}",
               defaults: new { id = RouteParameter.Optional }
           );
-           
         }
-
-       
     }
 }

@@ -1,6 +1,5 @@
-﻿using StudyMateLibrary.Enities;
-using StudyMateLibrary.Domains;
-using System;
+﻿using StudyMateLibrary.Domains;
+using StudyMateLibrary.Enities;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -17,11 +16,7 @@ namespace CoreService.Controllers
             _UserDomain = new UserDomain();
         }
 
-        //[HttpGet]
-        //public User GetUser(int id)
-        //{
-        //    return _UserDomain.GetUser(x => x.UserId == id);
-        //}
+      
 
         [HttpGet]
         public User GetUserByUsername(string username)
@@ -34,21 +29,7 @@ namespace CoreService.Controllers
             return _UserDomain.List();
         }
 
-        //[HttpPost]
-        //public HttpResponseMessage AddUser(User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        user.GuidId = new Guid();
-        //     var result= _UserDomain.ad(user);
-        //      return new HttpResponseMessage(HttpStatusCode.Created);
-        //    }
-        //    else
-        //    {
-        //        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-        //    }
-        //}
-
+        
         [HttpPost]
         public HttpResponseMessage ChangePassword(User user)
         {
@@ -56,14 +37,11 @@ namespace CoreService.Controllers
             if (result)
             {
                 return new HttpResponseMessage(HttpStatusCode.OK);
-
             }
             else
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
         }
-
-     
     }
 }
