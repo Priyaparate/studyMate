@@ -89,7 +89,7 @@
     <Compile Include="Domains\QuestionDomain.cs" />
     <Compile Include="Domains\UserDomain.cs" />
     <Compile Include="Enities\Address.cs" />
-    <Compile Include="Enities\CIty.cs" />
+    <Compile Include="Enities\City.cs" />
     <Compile Include="Enities\Country.cs" />
     <Compile Include="Enities\Options.cs" />
     <Compile Include="Enities\Question.cs" />

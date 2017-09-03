@@ -1,6 +1,8 @@
 ﻿using StudyMateLibrary.Domains;
 using StudyMateLibrary.Enities;
+using StudyMateLibrary.Extentions;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -68,6 +70,14 @@ namespace CoreService.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
+        }
+
+        [HttpGet]
+        public virtual Dictionary<string,object> GetDepedentObjectList()
+        {
+
+            return EntityExtention.GetDependanobjectList<T>();
+
         }
     }
 }

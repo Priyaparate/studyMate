@@ -116,9 +116,13 @@ namespace StudyMateLibrary.FrameWork
             return MemberDeclarationList[type].Where(x => x.IsPrimaryKey == true).FirstOrDefault().Dependancies;
         }
 
-        public static Entitydeclarations GetEntityddeclation(Type type)
+        public static Entitydeclarations GetEntityDeclation(Type type)
         {
             return EntityDeclarationList[type];
+        }
+        public static IEnumerable<MemberDeclaration> GetMemberDeclations(Type entityType)
+        {
+            return MemberDeclarationList[entityType];
         }
     }
 }

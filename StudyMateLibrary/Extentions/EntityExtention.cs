@@ -25,7 +25,7 @@ namespace StudyMateLibrary.Extentions
                 var filter = GetExpression(item.Key, member.Name, entity.Id).Compile();
                 var filterArry = new object[] { filter };
 
-                var EntityDeclaration = EntityManager.GetEntityddeclation(item.Key);
+                var EntityDeclaration = EntityManager.GetEntityDeclation(item.Key);
                 int result = 0;
                 if (EntityDeclaration.CascadeDelete)
                 {
@@ -76,5 +76,24 @@ namespace StudyMateLibrary.Extentions
             var repo = Convert.ChangeType(obj, makeme);
             return repo;
         }
+
+        public static Dictionary<string, object> GetDependanobjectList<T>()
+        { var type = typeof(T);
+            var declarations = EntityManager.GetMemberDeclations(type);
+            var data = new Dictionary<string,object>();
+            foreach (var item in declarations)
+            {
+                if (item.IsForignKey)
+                {
+                    var repository = GetRepositoryInstance(item.foreignKeyEntity);
+
+                    var resultobj = repository.GetType().GetMethod("List").Invoke(repository, new object[] { null});
+                    data.Add(item.MemberName, resultobj);
+                }
+            }
+            return data; 
+
+        }
+
     }
 }
